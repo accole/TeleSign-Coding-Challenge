@@ -1,0 +1,30 @@
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'menu/style.css' %}">
+
+<h1>Add Menu Item</h1>
+
+<div class="container">
+	<form method="postadd">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit">Next</button>
+	</form>
+</div>
+
+<h2>{{ num_i }}</h2>
+
+{% if num_i > 0 %}
+	<form method="POST">
+		{% csrf_token %}
+		{% for i in num_i %}
+			{{ form2.as_p }}
+		{% endfor %}
+		<button type="submit">Next</button>
+	</form>
+{% else %}
+	<p>Invalid number of Ingredients.</p>
+{% endif %}
+
+<p style="text-indent: 300px"><a href="{% url 'menu:allitems' %}">{{ "Back to Menu" }}</a></p>

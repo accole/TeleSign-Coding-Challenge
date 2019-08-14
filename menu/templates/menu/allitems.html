@@ -1,0 +1,66 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'menu/style.css' %}">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+
+<div class="row">
+
+	<div class="column">
+	<!--  menu  -->
+		<h1>MENU</h1>
+
+		<h2>Drinks</h2>
+		{% if drink_menu %}
+			<ul>
+			{% for d in drink_menu %}
+				<li><a href="{% url 'menu:drinkdetail' d.id %}">{{ d.drink_name }}</a></li>
+			{% endfor %}
+			</ul>
+		{% else %}
+			<p>No Drinks are on the Menu.</p>
+		{% endif %}
+	</div>
+	<div class="column">
+		<br><br><br><br><br><br><br>
+		<h2>Snacks</h2>
+		{% if snack_menu %}
+			<ul>
+			{% for s in snack_menu %}
+				<li><a href="{% url 'menu:snackdetail' s.id %}">{{ s.snack_name }}</a></li>
+			{% endfor %}
+			</ul>
+		{% else %}
+			<p>No Snacks are on the Menu.</p>
+		{% endif %}
+	</div>
+
+	<div class="column" style="background-color:#F4A460;">
+	<!-- add/edit/delete a drink -->
+
+		<h1 style="color: black">EDIT</h1>
+		<li style="color: black"><a style="color: black" href="{% url 'menu:additem' %}">{{ "Add Menu Item" }}</a></li>
+		<li style="color: black"><a style="color: black" href="{% url 'menu:edititem' %}">{{ "Edit Menu Item" }}</a></li>
+		<li style="color: black"><a style="color: black" href="{% url 'menu:deleteitem' %}">{{ "Delete Menu Item" }}</a></li>
+		<br><br><br><br><br>
+
+	</div>
+</div>

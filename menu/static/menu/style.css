@@ -1,0 +1,23 @@
+
+/* background color */
+body {
+	background-color: #A0522D;
+}
+
+/* Headings */
+h1 {
+	text-indent: 10px;
+	font-family:Courier;
+	font-size: 60px;
+	color: white;
+}
+
+h2, li, p, a {
+	font-family:Courier;
+	color: white;
+}
+
+/* hyperlink color */
+li a {
+	color: white;
+}

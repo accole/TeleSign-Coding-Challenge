@@ -1,0 +1,27 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'menu/style.css' %}">
+
+<h1>{{ current_drink.drink_name }}</h1>
+<h2>Ingredients</h2>
+{% if current_drink.ingredient_set.all %}
+	<ul>
+	{% for i in current_drink.ingredient_set.all %}
+		<li>{{ i.ingred_name }}</li>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>No ingredients added.</p>
+{% endif %}
+<h2>Reccomended Snack Pairs</h2>
+{% if current_drink.snack_set.all %}
+	<ul>
+	{% for s in current_drink.snack_set.all %}
+		<li>{{ s.snack_name }}</li>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>No recommended snack pairs.</p>
+{% endif %}
+
+<p style="text-indent: 300px"><a href="{% url 'menu:allitems' %}">{{ "Back to Menu" }}</a></p>

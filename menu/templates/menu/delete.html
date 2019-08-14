@@ -1,0 +1,18 @@
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'menu/style.css' %}">
+
+
+<h1>Delete Menu Item</h1>
+<h2>Enter Item to Delete:</h2>
+
+<div class="container">
+	<form method="deleteitem">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit">Delete</button>
+	</form>
+</div>
+
+<p style="text-indent: 300px"><a href="{% url 'menu:allitems' %}">{{ "Back to Menu" }}</a></p>
