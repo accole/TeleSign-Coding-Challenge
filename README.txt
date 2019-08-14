@@ -35,7 +35,7 @@ My Submission
 		>>> from menu.models import Drink, Snack, Ingredient
 	     (creating Drinks)
 		>>> d1 = Drink(drink_name="espresso", item="drink")
-		>>> d2 = Drink(drink_name="espresso", item="drink")
+		>>> d2 = Drink(drink_name="americano", item="drink")
 		>>> d1.save()
 		>>> d2.save()
 	     (Adding ingredients  //foreign key)
